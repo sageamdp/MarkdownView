@@ -51,6 +51,10 @@ open class MarkdownView: UIView {
   @objc public func load(markdown: String?, enableImage: Bool = true) {
     guard let markdown = markdown else { return }
 
+    if let webview = self.webView {
+        webview.removeFromSuperview()
+    }
+   
     if let url = htmlURL {
       let templateRequest = URLRequest(url: url)
 
